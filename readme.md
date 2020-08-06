@@ -1,4 +1,4 @@
-##Steps:
+## Steps:
 
 1. Export the postman test scripts
 2. create a package file : npm init
@@ -6,7 +6,7 @@
 
 https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/
 
-##Jenkin script node stage 
+## Jenkin script node stage 
 1. git https://github.com/loyolastalin/postman-test-cases.git
 2. sh 'npm install'
 2. sh 'npm run execute-postman-test-prod'
