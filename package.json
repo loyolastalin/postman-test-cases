@@ -1,0 +1,13 @@
+{
+  "name": "postman-test-cases",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "execute-postman-test-prod": "newman run apigee-test-cases.postman_collection.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^5.1.2"
+  }
+}

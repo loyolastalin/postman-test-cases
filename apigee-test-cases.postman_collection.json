@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "6a88b9f1-9e67-43b6-bdfd-494ae63802fc",
+		"name": "apigee-test-cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://loyolastalin-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bcd4bd60-d0ba-4f73-9873-713989a395de",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"access_token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic N0lmcWNoQVJhdXF1QWppaU9LWUdBbktLWVZhTTNnQjI6dUVuWEZvRGF2ZUE2SG1RSg==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "https://loyolastalin-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"loyolastalin-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"oauth",
+						"client_credential",
+						"accesstoken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
