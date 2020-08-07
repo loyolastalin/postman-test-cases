@@ -11,4 +11,14 @@ https://learning.postman.com/docs/running-collections/using-newman-cli/command-l
 2. sh 'npm install'
 2. sh 'npm run execute-postman-test-prod'
 
-##
+## Generate Reports normall
+
+1. npm install -g newman-reporter-html
+2. newman run apigee-test-cases.postman_collection.json -r html
+3. Navigate to the folder and see the generated HTML file
+
+## Generate Reports Advance
+
+1. npm install -g newman-reporter-htmlextra
+2. newman run apigee-test-cases.postman_collection.json -r htmlextra
+3. Navigate to the folder and see the generated HTML file
