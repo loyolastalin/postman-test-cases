@@ -11,14 +11,22 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bcd4bd60-d0ba-4f73-9873-713989a395de",
+						"id": "d2098b8b-fc49-4b68-930e-be8a6ff8e037",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"pm.test(\"Intentional Negative Test case\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
 							"pm.test(\"Body matches string\", function () {\r",
+							"     var jsonData = pm.response.json();\r",
+							"\r",
+							"    console.log(jsonData.access_token)\r",
+							"    pm.environment.set(\"access_token\", jsonData.access_token)\r",
 							"    pm.expect(pm.response.text()).to.include(\"access_token\");\r",
-							"});"
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -58,6 +66,46 @@
 							"key": "grant_type",
 							"value": "client_credentials"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://loyolastalin-eval-test.apigee.net/test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "78fb5698-8907-48ce-8134-d6d5294f4f35",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://loyolastalin-eval-test.apigee.net/test",
+					"protocol": "https",
+					"host": [
+						"loyolastalin-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"test"
 					]
 				}
 			},
